@@ -12,6 +12,7 @@ public class AdminController {
   @PreAuthorize("hasAuthority('ADMIN')")
   @GetMapping
   public String adminPage() {
+    System.out.println("adminPage!!@");
     return "admin/main";
   }
 }

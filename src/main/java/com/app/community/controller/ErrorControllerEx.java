@@ -17,31 +17,42 @@ import java.util.Map;
 public class ErrorControllerEx implements ErrorController {
 
 
- @RequestMapping(produces = "text/html")
- public String handleError(HttpServletRequest request, HttpServletResponse response) {
-  int httpStatus = getHttpStatus(response);
-  if (httpStatus == HttpServletResponse.SC_NOT_FOUND) {
-   return "404";
+  @RequestMapping(produces = "text/html")
+  public String handleError(HttpServletRequest request, HttpServletResponse response) {
+    int httpStatus = getHttpStatus(response);
+    if (httpStatus == HttpServletResponse.SC_NOT_FOUND) {
+      return "404";
+    } else if (httpStatus == HttpServletResponse.SC_FORBIDDEN) {
+      return "403";
+    } else if (httpStatus == HttpServletResponse.SC_UNAUTHORIZED) {
+      return "401";
+    } else {
+      return "500";
+    }
   }
-  return "500";
- }
 
- @ResponseBody
- @RequestMapping
- public ResponseEntity<Map<String, Object>> error(HttpServletRequest request, HttpServletResponse response) {
-  int httpStatus = response.getStatus();
-  Map<String, Object> body = new HashMap<>();
-  if (httpStatus == HttpServletResponse.SC_NOT_FOUND) {
-   body.put("error", "404");
-   body.put("code", 404);
-  } else {
-   body.put("error", "500");
-   body.put("code", 500);
+  @ResponseBody
+  @RequestMapping
+  public ResponseEntity<Map<String, Object>> error(HttpServletRequest request, HttpServletResponse response) {
+    int httpStatus = response.getStatus();
+    Map<String, Object> body = new HashMap<>();
+    if (httpStatus == HttpServletResponse.SC_NOT_FOUND) {
+      body.put("error", "404");
+      body.put("code", 404);
+    } else if (httpStatus == HttpServletResponse.SC_FORBIDDEN) {
+      body.put("error", "403");
+      body.put("code", 403);
+    } else if (httpStatus == HttpServletResponse.SC_UNAUTHORIZED) {
+      body.put("error", "401");
+      body.put("code", 401);
+    } else {
+      body.put("error", "500");
+      body.put("code", 500);
+    }
+    return new ResponseEntity<>(body, HttpStatus.valueOf(httpStatus));
   }
-  return new ResponseEntity<>(body, HttpStatus.valueOf(httpStatus));
- }
 
- public int getHttpStatus(HttpServletResponse response) {
-  return response.getStatus();
- }
+  public int getHttpStatus(HttpServletResponse response) {
+    return response.getStatus();
+  }
 }

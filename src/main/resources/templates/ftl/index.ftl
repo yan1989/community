@@ -46,7 +46,12 @@
        <#if SPRING_SECURITY_CONTEXT??>
         <div class="layui-card-header">我的信息</div>
         <div class="layui-card-body">
-            ${SPRING_SECURITY_CONTEXT.authentication.principal.username}
+         <p>${SPRING_SECURITY_CONTEXT.authentication.principal.username}</p>
+         <p>
+             <#list SPRING_SECURITY_CONTEXT.authentication.principal.authorities as role>
+              <span>${role}<#if role_has_next>,</#if></span>
+             </#list>
+         </p>
         </div>
        <#else>
         <div class="layui-card-header">登录 / 注册</div>
