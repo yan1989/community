@@ -12,6 +12,6 @@ public class UserController {
   @PreAuthorize("hasAuthority('USER')")
   @GetMapping("/profile")
   public String profile() {
-    return "ftl/profile";
+    return "user_profile";
   }
 }

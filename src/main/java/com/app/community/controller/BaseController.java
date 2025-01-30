@@ -1,7 +1,5 @@
 package com.app.community.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -10,18 +8,18 @@ public class BaseController {
 
 
   @GetMapping("/")
-  public String index(@AuthenticationPrincipal UserDetails userDetails) {
+  public String index() {
     return "ftl/index";
   }
 
   @GetMapping("/login")
   public String login() {
-    return "ftl/login";
+    return "ftl/user_login";
   }
 
   @GetMapping("/register")
   public String register() {
-    return "ftl/register";
+    return "ftl/user_register";
   }
 
 }

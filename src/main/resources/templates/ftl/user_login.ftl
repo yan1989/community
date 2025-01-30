@@ -42,22 +42,21 @@
 </div>
 </body>
 <script>
- layui.use(['form'], function () {
-  const form = layui.form;
-  // 监听表单提交事件
-  form.on('submit(login-form)', function (data) {
-   axios.post('/procssLogin', data.field, {
-    headers: {
-     'Content-Type': 'application/x-www-form-urlencoded'
-    }
-   }).then(function () {
-    window.location.href = '/';
-   }).catch(function (error) {
-    layer.msg(error.response.data);
-   });
-   // 阻止表单默认提交行为
-   return false;
+  layui.use(['form'], function () {
+    const form = layui.form;
+    // 监听表单提交事件
+    form.on('submit(login-form)', function (data) {
+      axios.post('/procssLogin', data.field, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }).then(function () {
+        window.location.href = '/';
+      }).catch(function (error) {
+        layer.msg(error.response.data);
+      });
+      return false;
+    });
   });
- });
 </script>
 </html>
