@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <#assign title="注册">
     <#include "../inc/head.ftl">

@@ -16,7 +16,7 @@
     <div class="layui-card-body">
      <!-- 发帖按钮 -->
      <div class="layui-form-item">
-      <a href="/create-post.html" class="layui-btn layui-btn-normal">发帖</a>
+      <a href="/user/createPost" class="layui-btn layui-btn-normal">发帖</a>
      </div>
      <!-- 帖子示例 -->
      <div class="post-item">

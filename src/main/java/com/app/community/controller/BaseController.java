@@ -14,12 +14,12 @@ public class BaseController {
 
   @GetMapping("/login")
   public String login() {
-    return "ftl/user_login";
+    return "ftl/user-login";
   }
 
   @GetMapping("/register")
   public String register() {
-    return "ftl/user_register";
+    return "ftl/user-register";
   }
 
 }

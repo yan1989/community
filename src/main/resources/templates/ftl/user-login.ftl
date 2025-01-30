@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <#assign title="登录">
     <#include "../inc/head.ftl">
@@ -9,7 +9,7 @@
 <#include "../inc/navbar.ftl">
 <div class="layui-container">
  <div class="layui-row layui-col-space15">
-  <div class="layui-col-md6 layui-col-md-offset3">
+  <div class="layui-col-md8 layui-col-md-offset2">
    <div class="layui-card">
     <div class="layui-card-header">登录</div>
     <div class="layui-card-body">
