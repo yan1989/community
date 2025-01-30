@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
+    <#assign title="用户设置">
     <#include "../inc/head.ftl">
-    <@head title="用户设置"></@head>
 </head>
 
 <body>

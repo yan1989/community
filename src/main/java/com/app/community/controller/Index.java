@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Index {
 
 
-  @GetMapping("/")
-  public String index(@AuthenticationPrincipal UserDetails userDetails) {
-    System.out.println("index");
-    return "index.html";
-  }
+ @GetMapping("/")
+ public String index(@AuthenticationPrincipal UserDetails userDetails) {
+  return "ftl/index";
+ }
 
-  @GetMapping("/login")
-  public String login() {
-    return "ftl/login";
-  }
+ @GetMapping("/login")
+ public String login() {
+  return "ftl/login";
+ }
 
-  @GetMapping("/register")
-  public String register() {
-    return "ftl/register";
-  }
+ @GetMapping("/register")
+ public String register() {
+  return "ftl/register";
+ }
 
 }

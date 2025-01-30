@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
 
-  @PreAuthorize("hasAuthority('ADMIN')")
-  @GetMapping
-  public String adminPage() {
-    System.out.println("adminPage!!@");
-    return "admin/main";
-  }
+ @PreAuthorize("hasAuthority('ADMIN')")
+ @GetMapping
+ public String adminPage() {
+  return "admin/main";
+ }
 }

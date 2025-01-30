@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <#assign title="社区首页">
     <#include "../inc/head.ftl">
-    <@head title="简易论坛首页"></@head>
 </head>
-
 <body>
 <!-- 用于插入 navbar 的容器 -->
-<#include "../inc/navbar.ftl">
+<#include "../inc/navbar.ftl"/>
 <!-- 页面内容 -->
 <div class="layui-container">
  <div class="layui-row layui-col-space15">
@@ -43,12 +42,12 @@
   <div class="layui-col-md3">
    <!-- 登录、注册栏目 -->
    <div class="layui-card login-card">
-       <#if SPRING_SECURITY_CONTEXT??>
+       <#if SECURITY_CONTEXT??>
         <div class="layui-card-header">我的信息</div>
         <div class="layui-card-body">
-         <p>${SPRING_SECURITY_CONTEXT.authentication.principal.username}</p>
+         <p>${SECURITY_CONTEXT.username}</p>
          <p>
-             <#list SPRING_SECURITY_CONTEXT.authentication.principal.authorities as role>
+             <#list SECURITY_CONTEXT.authorities as role>
               <span>${role}<#if role_has_next>,</#if></span>
              </#list>
          </p>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <#assign title="登录">
     <#include "../inc/head.ftl">
-    <@head title="用户登录"></@head>
 </head>
 <body>
 <!-- 用于插入 navbar 的容器 -->
