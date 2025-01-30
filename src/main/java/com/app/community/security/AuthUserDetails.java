@@ -12,18 +12,21 @@ import java.util.stream.Collectors;
 @Data
 public class AuthUserDetails implements UserDetails {
 
- private Long uid;
- private String username;
- private String password;
- private String email;
- private Collection<? extends GrantedAuthority> authorities;
+  private Long uid;
+  private String username;
+  private String password;
+  private String email;
+  private Collection<? extends GrantedAuthority> authorities;
 
- public AuthUserDetails(User user) {
-  this.uid = user.getUid();
-  this.username = user.getUsername();
-  this.password = user.getPassword();
-  this.email = user.getEmail();
-  this.authorities = user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName()))
-    .collect(Collectors.toList());
- }
+  public AuthUserDetails(User user) {
+    this.uid = user.getUid();
+    this.username = user.getUsername();
+    this.password = user.getPassword();
+    this.email = user.getEmail();
+    this.authorities = user.getRoles()
+      .stream()
+      .map(role -> new SimpleGrantedAuthority(role.getName()))
+      .collect(Collectors.toList());
+  }
+
 }
