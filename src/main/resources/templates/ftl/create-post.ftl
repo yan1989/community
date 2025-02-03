@@ -70,20 +70,33 @@
 </div>
 </body>
 <script>
+  const layer = layui.layer;
   const {createEditor, createToolbar} = window.wangEditor;
-
   const editorConfig = {
     MENU_CONF: {
       uploadImage: {
         server: '/user/uploadImage',
         fieldName: 'imageFile',
+        maxFileSize: 1024 * 1024, // 1M
+        allowedFileTypes: ['image/jpeg', 'image/png', 'image/gif'],
+        onFailed(file, res) {
+          layer.alert(res.message, {title: '上传错误', icon: 2});
+        },
+        onError(file, err, res) {
+          layer.alert(err.message, {title: '上传错误', icon: 2});
+        },
       }
     }
   }
 
   const toolbarConfig = {
     toolbarKeys: [
-      "headerSelect", "blockquote", "bold", "underline", "italic", "through",
+      {
+        key: 'group-font-style', // 必填，要以 group 开头
+        title: '字体', // 必填
+        menuKeys: ["fontFamily", "fontSize"], // 下级菜单 key ，必填
+      },
+      "blockquote", "bold", "underline", "italic", "through",
       "color", "bgColor", "clearStyle", "bulletedList", "numberedList",
       "justifyLeft", "justifyRight", "justifyCenter", "insertLink",
       {
@@ -113,6 +126,6 @@
     config: toolbarConfig,
     mode: 'simple'
   })
-   //console.log(toolbar.getConfig())
+  console.log(toolbar.getConfig())
 </script>
 </html>
