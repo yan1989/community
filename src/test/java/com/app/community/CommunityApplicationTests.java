@@ -39,6 +39,7 @@ class CommunityApplicationTests {
   User admin = new User();
   admin.setUsername("admin");
   admin.setPassword(passwordEncoder.encode("123"));
+  admin.setNickname("管理员");
   admin.setEmail("admin@example.com");
   admin.setRoles(List.of(roleAdmin, roleUser));
   userRepository.save(admin);
@@ -46,6 +47,7 @@ class CommunityApplicationTests {
   User user = new User();
   user.setUsername("user");
   user.setPassword(passwordEncoder.encode("qwe"));
+  user.setNickname("普通用户");
   user.setEmail("user@example.com");
   user.setRoles(List.of(roleUser));
   userRepository.save(user);

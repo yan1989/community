@@ -75,7 +75,7 @@
   const editorConfig = {
     MENU_CONF: {
       uploadImage: {
-        server: '/user/uploadImage',
+        server: '/post/uploadImage',
         fieldName: 'imageFile',
         maxFileSize: 1024 * 1024, // 1M
         allowedFileTypes: ['image/jpeg', 'image/png', 'image/gif'],
@@ -91,13 +91,13 @@
 
   const toolbarConfig = {
     toolbarKeys: [
+      "fontFamily", "fontSize",
       {
-        key: 'group-font-style', // 必填，要以 group 开头
-        title: '字体', // 必填
-        menuKeys: ["fontFamily", "fontSize"], // 下级菜单 key ，必填
+        key: 'group-font-style',
+        title: '样式',
+        menuKeys: ["bold", "underline", "italic", "through", "bgColor"], // 下级菜单 key ，必填
       },
-      "blockquote", "bold", "underline", "italic", "through",
-      "color", "bgColor", "clearStyle", "bulletedList", "numberedList",
+      "color", "clearStyle", "bulletedList", "numberedList",
       "justifyLeft", "justifyRight", "justifyCenter", "insertLink",
       {
         "key": "group-image",
@@ -108,7 +108,7 @@
           "uploadImage"
         ]
       },
-      "insertTable", "codeBlock"
+      "insertTable", "codeBlock", "emotion","divider"
     ]
   }
 
@@ -126,6 +126,6 @@
     config: toolbarConfig,
     mode: 'simple'
   })
-  console.log(toolbar.getConfig())
+  // console.log(toolbar.getConfig())
 </script>
 </html>
