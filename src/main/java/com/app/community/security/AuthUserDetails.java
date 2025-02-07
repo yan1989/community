@@ -25,6 +25,7 @@ public class AuthUserDetails implements UserDetails {
   public AuthUserDetails(User user) {
     this.uid = user.getUid();
     this.username = user.getUsername();
+    this.password = user.getPassword();
     this.nickname = user.getNickname();
     this.avatar = user.getAvatar();
     this.email = user.getEmail();

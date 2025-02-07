@@ -13,17 +13,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommunityUserDetailsService implements UserDetailsService {
 
- @Resource
- private UserRepository userRepository;
+  @Resource
+  private UserRepository userRepository;
 
- @Override
- @Cacheable(value = "users", key = "#username")
- public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-  // 从数据库中查询用户
-  User user = userRepository.findByUsername(username);
-  if (user == null) {
-   throw new UsernameNotFoundException("用户名或密码错误！");
+  @Override
+  @Cacheable(value = "users", key = "#username")
+  public UserDetails loadUserByUsername(String username) {
+    User user = userRepository.findByUsername(username);
+    if (user == null) {
+      throw new UsernameNotFoundException("用户名或密码错误!");
+    }
+    return new AuthUserDetails(user);
   }
-  return new AuthUserDetails(user);
- }
 }

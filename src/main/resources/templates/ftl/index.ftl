@@ -24,7 +24,7 @@
           <div class="post-header">
            <img src="/images/head.webp" alt="用户头像" class="post-avatar">
            <span class="post-author">${p.nickname}</span>
-           <span class="post-time">${p.date}</span>
+           <span class="post-time">${p.date?string("yyyy-MM-dd HH:mm")}</span>
           </div>
           <div class="post-content">
               ${p.summary}

@@ -10,10 +10,10 @@ import java.io.IOException;
 
 @Component
 public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHandler {
- @Override
- public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-                                     AuthenticationException exception) throws IOException {
-  response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 返回 401 状态码
-  response.getWriter().write(exception.getMessage());
- }
+  @Override
+  public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+                                      AuthenticationException exception) throws IOException {
+    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 返回 401 状态码
+    response.getWriter().write("用户名或密码错误！");
+  }
 }
